@@ -42,6 +42,7 @@ router.post('/zhuce', function (req, res) {
         name: req.body.name,
         head_img: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
     }
+    console.log(tiaojian2)
     db.search('user', tiaojian1).then((data) => {
         if(data.length != 0) {
             let response = {
@@ -51,6 +52,7 @@ router.post('/zhuce', function (req, res) {
             res.send(response);
         } else {
             db.add('user', tiaojian2)
+            db.add('friends', {'id': req.body.loginId, 'friend_list': []})
             let response = {
                 errCode: '0',
                 msg: '注册成功'
