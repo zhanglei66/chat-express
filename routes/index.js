@@ -39,6 +39,7 @@ router.post('/zhuce', function (req, res) {
     let tiaojian2 = {
         loginId: req.body.loginId,
         password: req.body.password,
+        name: req.body.name,
         head_img: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
     }
     db.search('user', tiaojian1).then((data) => {
